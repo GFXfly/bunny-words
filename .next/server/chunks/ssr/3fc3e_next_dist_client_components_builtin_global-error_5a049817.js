@@ -1,0 +1,3 @@
+module.exports=[76110,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(55749);a.n(d("[project]/Desktop/bunny-words-homepage/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},59241,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(55749);a.n(d("[project]/Desktop/bunny-words-homepage/node_modules/next/dist/client/components/builtin/global-error.js"))},41741,a=>{"use strict";a.i(76110);var b=a.i(59241);a.n(b)}];
+
+//# sourceMappingURL=3fc3e_next_dist_client_components_builtin_global-error_5a049817.js.map

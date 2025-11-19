@@ -1,0 +1,45 @@
+[00:00:00.504] Server  LOG      ✓ Ready in 328ms
+[00:00:03.913] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:03.951] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.036] Browser WARN    Image with src "http://localhost:3000/bunny-studying.png" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
+[00:01:55.934] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:56.121] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/Desktop/B...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html lang="zh-CN">
+                          <body
+                            className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
+-                           inmaintabuse="1"
+-                           data-channel-name="FDm_r2eglcAIOnvxfz6l5"
+-                           data-extension-id="hpclkefagolihohboafpheddmmgdffjm"
+                          >
+                  ...
+
+[00:01:56.659] Browser LOG     eth getParams FDm_r2eglcAIOnvxfz6l5
+[00:01:56.659] Browser WARN    Backpack couldn't override `window.ethereum`.
+[00:01:56.660] Browser ERROR   Error checking default wallet status: {"code":-32603,"data":{"originalError":{"message":"Cannot read properties of undefined (reading 'isDefaultWallet')","stack":"TypeError: Cannot read properties of undefined (reading 'isDefaultWallet')\n    at Object.getIsDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3953850)\n    at Object.isDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3266176)\n    at tn (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3390345)\n    at a.listenCallback (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:4572743)\n    at a.onRequest (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3750357)\n    at chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:2587928"}},"message":"Cannot read properties of undefined (reading 'isDefaultWallet')"}

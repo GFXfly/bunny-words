@@ -1,0 +1,13 @@
+__turbopack_load_page_chunks__("/_error", [
+  "static/chunks/3fc3e_next_dist_compiled_e2384aa5._.js",
+  "static/chunks/3fc3e_next_dist_shared_lib_245fba09._.js",
+  "static/chunks/3fc3e_next_dist_client_a42cd650._.js",
+  "static/chunks/3fc3e_next_dist_b0dba36d._.js",
+  "static/chunks/3fc3e_next_error_1ac890bf.js",
+  "static/chunks/[next]_entry_page-loader_ts_0fd54fc1._.js",
+  "static/chunks/3fc3e_react-dom_9193ada1._.js",
+  "static/chunks/3fc3e_2e8bdb00._.js",
+  "static/chunks/[root-of-the-server]__40d8ea8e._.js",
+  "static/chunks/Desktop_bunny-words-homepage_pages__error_2da965e7._.js",
+  "static/chunks/turbopack-Desktop_bunny-words-homepage_pages__error_3d1fec85._.js"
+])

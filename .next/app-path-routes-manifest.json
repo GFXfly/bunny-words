@@ -1,0 +1,11 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/login/page": "/login",
+  "/page": "/",
+  "/register/page": "/register",
+  "/starred/page": "/starred",
+  "/starred/study/page": "/starred/study",
+  "/wordbook/[id]/page": "/wordbook/[id]",
+  "/wordbook/[id]/study/[listId]/page": "/wordbook/[id]/study/[listId]"
+}

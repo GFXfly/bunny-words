@@ -1,0 +1,11 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/register/page": "app/register/page.js",
+  "/starred/page": "app/starred/page.js",
+  "/starred/study/page": "app/starred/study/page.js",
+  "/wordbook/[id]/page": "app/wordbook/[id]/page.js",
+  "/wordbook/[id]/study/[listId]/page": "app/wordbook/[id]/study/[listId]/page.js"
+}

@@ -1,0 +1,3 @@
+module.exports=[14125,a=>{"use strict";var b=a.i(90772);function c(){return(0,b.jsx)("div",{className:"min-h-screen bg-background flex items-center justify-center",children:(0,b.jsxs)("div",{className:"text-center",children:[(0,b.jsx)("div",{className:"inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-primary border-r-transparent"}),(0,b.jsx)("p",{className:"mt-4 text-muted-foreground",children:"加载中..."})]})})}a.s(["default",()=>c])}];
+
+//# sourceMappingURL=3d860_bunny-words-homepage_app_wordbook_%5Bid%5D_study_%5BlistId%5D_loading_tsx_2adc9cc2._.js.map

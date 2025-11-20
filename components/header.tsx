@@ -5,27 +5,52 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { getCurrentUser, logoutUser, getUserRemainingDays } from '@/lib/utils/auth-manager'
 
 export function Header() {
   const router = useRouter()
   const [user, setUser] = useState<{ phone: string; expireDate: string } | null>(null)
+  const [remainingDays, setRemainingDays] = useState<number | null>(null)
   const [showDropdown, setShowDropdown] = useState(false)
 
   useEffect(() => {
-    const userData = localStorage.getItem('user')
-    if (userData) {
-      const parsed = JSON.parse(userData)
-      if (parsed.isLoggedIn) {
-        setUser({ phone: parsed.phone, expireDate: parsed.expireDate })
+    const currentUser = getCurrentUser()
+    if (currentUser) {
+      setUser({ phone: currentUser.phone, expireDate: currentUser.expireDate })
+      setRemainingDays(getUserRemainingDays())
+    }
+
+    // 监听登出事件
+    const handleLogout = () => {
+      setUser(null)
+      setRemainingDays(null)
+    }
+
+    // 监听登录事件
+    const handleLogin = () => {
+      const currentUser = getCurrentUser()
+      if (currentUser) {
+        setUser({ phone: currentUser.phone, expireDate: currentUser.expireDate })
+        setRemainingDays(getUserRemainingDays())
       }
+    }
+
+    window.addEventListener('bunny_user_logout', handleLogout)
+    window.addEventListener('bunny_user_login', handleLogin)
+
+    return () => {
+      window.removeEventListener('bunny_user_logout', handleLogout)
+      window.removeEventListener('bunny_user_login', handleLogin)
     }
   }, [])
 
   const handleLogout = () => {
-    localStorage.removeItem('user')
+    logoutUser()
     setUser(null)
+    setRemainingDays(null)
     setShowDropdown(false)
     router.push('/')
+    window.location.reload()
   }
 
   return (
@@ -81,10 +106,17 @@ export function Header() {
                   </div>
 
                   <div className="mb-4 py-3 px-4 bg-gradient-to-r from-[#FFF9E6] to-[#FFFEF5] rounded-xl border border-yellow-100 shadow-sm">
-                    <span className="text-sm text-foreground/80 flex items-center gap-2">
-                      <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
-                      到期：<span className="font-semibold text-foreground">{user.expireDate}</span>
-                    </span>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm text-foreground/80 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
+                        到期：<span className="font-semibold text-foreground">{user.expireDate}</span>
+                      </span>
+                      {remainingDays !== null && (
+                        <span className="text-xs text-foreground/60 ml-4">
+                          剩余 <span className="font-semibold text-[#E85D75]">{remainingDays}</span> 天
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   <button

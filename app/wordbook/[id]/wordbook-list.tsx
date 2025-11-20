@@ -5,6 +5,19 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 import { getSectionWords } from '@/lib/utils/wordbook-manager'
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+import { getCurrentUser } from '@/lib/utils/auth-manager'
+import { toast } from 'sonner'
 import { getListProgress, getListStats } from '@/lib/utils/srs-manager'
 
 interface WordbookListProps {
@@ -29,6 +42,7 @@ export function WordbookList({ wordbookId, lists }: WordbookListProps) {
     const [showAllWordsModal, setShowAllWordsModal] = useState(false)
     const [selectedListWords, setSelectedListWords] = useState<Array<{ word: string, translation: string }>>([])
     const [selectedListName, setSelectedListName] = useState('')
+    const [showResetDialog, setShowResetDialog] = useState(false)
 
     const loadStats = () => {
         const stats: Record<number, any> = {}
@@ -68,30 +82,59 @@ export function WordbookList({ wordbookId, lists }: WordbookListProps) {
     }, [wordbookId, lists])
 
     const handleResetProgress = () => {
-        if (confirm('确定要重置所有进度吗？此操作不可恢复。')) {
-            lists.forEach(list => {
-                const sectionId = `${wordbookId}_list_${list.id}`
-                localStorage.removeItem(`bunny_words_progress_${wordbookId}_${sectionId}`)
-            })
-            window.location.reload()
-        }
+        const user = getCurrentUser()
+
+        lists.forEach(list => {
+            const sectionId = `${wordbookId}_list_${list.id}`
+            const baseKey = `srs_progress_${wordbookId}_${sectionId}`
+            const key = user ? `${baseKey}_${user.phone}` : `${baseKey}_guest`
+            localStorage.removeItem(key)
+        })
+
+        // Dispatch event to update UI
+        window.dispatchEvent(new Event('bunny_words_progress_updated'))
+        setShowResetDialog(false)
+        toast.success('进度已重置', {
+            description: '所有学习记录已清空'
+        })
     }
 
     return (
         <div>
             <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-foreground">单词列表</h2>
-                <Button
-                    variant="ghost"
-                    onClick={handleResetProgress}
-                    className="text-muted-foreground hover:text-[#E85D75] hover:bg-[#FFF0F3] gap-2 cursor-pointer"
-                >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74-2.74L3 12" />
-                        <path d="M3 3v9h9" />
-                    </svg>
-                    重置进度
-                </Button>
+
+                <AlertDialog open={showResetDialog} onOpenChange={setShowResetDialog}>
+                    <AlertDialogTrigger asChild>
+                        <Button
+                            variant="ghost"
+                            className="text-muted-foreground hover:text-[#E85D75] hover:bg-[#FFF0F3] gap-2 cursor-pointer"
+                        >
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74-2.74L3 12" />
+                                <path d="M3 3v9h9" />
+                            </svg>
+                            重置进度
+                        </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent className="rounded-2xl">
+                        <AlertDialogHeader>
+                            <AlertDialogTitle>确定要重置所有进度吗？</AlertDialogTitle>
+                            <AlertDialogDescription>
+                                重置后，当前词书的所有学习记录（包括记忆周期和复习计划）都将被清空且无法恢复。一切将重新开始，您确定要继续吗？
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogCancel className="rounded-xl cursor-pointer">取消</AlertDialogCancel>
+                            <AlertDialogAction
+                                onClick={handleResetProgress}
+                                className="bg-[#E85D75] hover:bg-[#D64D64] text-white rounded-xl cursor-pointer"
+                            >
+                                确定
+                            </AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

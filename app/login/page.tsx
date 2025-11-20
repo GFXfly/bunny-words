@@ -5,23 +5,41 @@ import { Input } from '@/components/ui/input'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff, AlertCircle } from 'lucide-react'
+import { loginUser } from '@/lib/utils/auth-manager'
+import { toast } from 'sonner'
 
 export default function LoginPage() {
   const router = useRouter()
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    const userData = {
-      phone,
-      expireDate: '2026-11-14',
-      isLoggedIn: true,
+    setError('')
+    setIsLoading(true)
+
+    // 调用登录函数
+    const result = loginUser(phone, password)
+
+    setIsLoading(false)
+
+    if (result.success) {
+      // 登录成功，跳转到首页
+      toast.success('登录成功', {
+        description: '欢迎回来！'
+      })
+      router.push('/')
+    } else {
+      // 登录失败，显示错误消息
+      setError(result.message)
+      toast.error('登录失败', {
+        description: result.message
+      })
     }
-    localStorage.setItem('user', JSON.stringify(userData))
-    router.push('/')
   }
 
   return (
@@ -45,6 +63,14 @@ export default function LoginPage() {
           </div>
 
           <form onSubmit={handleLogin} className="space-y-6">
+            {/* 错误提示 */}
+            {error && (
+              <div className="flex items-center gap-2 p-3 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
+                <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                <span>{error}</span>
+              </div>
+            )}
+
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 手机号
@@ -96,9 +122,10 @@ export default function LoginPage() {
 
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#E85D75] to-[#F7A1B0] hover:from-[#D84B67] hover:to-[#E690A0] text-white h-12 text-base font-medium rounded-xl shadow-lg shadow-[#E85D75]/20 hover:shadow-[#E85D75]/30 transition-all hover:-translate-y-0.5"
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-[#E85D75] to-[#F7A1B0] hover:from-[#D84B67] hover:to-[#E690A0] text-white h-12 text-base font-medium rounded-xl shadow-lg shadow-[#E85D75]/20 hover:shadow-[#E85D75]/30 transition-all hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
             >
-              登录
+              {isLoading ? '登录中...' : '登录'}
             </Button>
 
             <div className="text-center text-sm text-gray-500 mt-6">

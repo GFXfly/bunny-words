@@ -88,10 +88,26 @@ export default async function WordbookPage({
             <Link href="/starred" className="group cursor-pointer relative block">
               <div className="relative aspect-[3/4] w-full max-w-[240px] mx-auto lg:mx-0 rounded-2xl overflow-hidden shadow-xl shadow-pink-100 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-pink-200 group-hover:-translate-y-1">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-10" />
-                {/* Placeholder cover since we don't have real covers for all books yet */}
-                <div className="w-full h-full bg-gradient-to-br from-[#FF9A9E] to-[#FECFEF] flex items-center justify-center text-white text-2xl font-bold p-4 text-center">
-                  {wordbook.name}
-                </div>
+                {wordbook.coverImage ? (
+                  <>
+                    <img
+                      src={wordbook.coverImage}
+                      alt={wordbook.name}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center z-20 p-4">
+                      <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-xl px-6 py-3 shadow-lg">
+                        <h1 className="text-white text-2xl font-bold tracking-wide text-center drop-shadow-md">
+                          {wordbook.name}
+                        </h1>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#FF9A9E] to-[#FECFEF] flex items-center justify-center text-white text-2xl font-bold p-4 text-center">
+                    {wordbook.name}
+                  </div>
+                )}
                 {/* Bookmark Icon Overlay */}
                 <div className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 backdrop-blur rounded-full flex items-center justify-center text-[#E85D75] shadow-lg">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none">

@@ -166,6 +166,8 @@ export function getRandomWords(count: number, options?: {
     return shuffled.slice(0, count)
 }
 
+import { getCurrentUser } from './auth-manager'
+
 /**
  * 获取词书统计信息
  */
@@ -183,12 +185,15 @@ export function getWordbookStats(wordbookId: string) {
     let starredWords = 0
 
     if (typeof window !== 'undefined') {
+        const user = getCurrentUser()
+
         // Get all list progress for this wordbook
         const totalLists = Math.ceil(allWords.length / 50)
 
         for (let i = 1; i <= totalLists; i++) {
             const sectionId = `${wordbookId}_list_${i}`
-            const progressKey = `srs_progress_${wordbookId}_${sectionId}`
+            const baseKey = `srs_progress_${wordbookId}_${sectionId}`
+            const progressKey = user ? `${baseKey}_${user.phone}` : `${baseKey}_guest`
             const progressData = localStorage.getItem(progressKey)
 
             if (progressData) {
@@ -211,7 +216,8 @@ export function getWordbookStats(wordbookId: string) {
         }
 
         // Get starred words count
-        const starredKey = `starred_words`
+        const starredBaseKey = `starred_words`
+        const starredKey = user ? `${starredBaseKey}_${user.phone}` : `${starredBaseKey}_guest`
         const starredData = localStorage.getItem(starredKey)
         if (starredData) {
             try {

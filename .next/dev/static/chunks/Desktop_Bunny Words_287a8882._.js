@@ -2559,12 +2559,12 @@ function WordbookSection() {
                             children: category.name
                         }, category.id, false, {
                             fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                            lineNumber: 159,
+                            lineNumber: 158,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                    lineNumber: 157,
+                    lineNumber: 156,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2587,7 +2587,7 @@ function WordbookSection() {
                                                     className: "w-full h-full object-cover"
                                                 }, void 0, false, {
                                                     fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                    lineNumber: 181,
+                                                    lineNumber: 180,
                                                     columnNumber: 25
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "flex flex-col items-center justify-center gap-1 p-1.5",
@@ -2597,7 +2597,7 @@ function WordbookSection() {
                                                             children: "happy"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                            lineNumber: 188,
+                                                            lineNumber: 187,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2606,23 +2606,23 @@ function WordbookSection() {
                                                                 className: "w-3 h-3 bg-gray-800 rounded-full"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                                lineNumber: 192,
+                                                                lineNumber: 191,
                                                                 columnNumber: 29
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                            lineNumber: 191,
+                                                            lineNumber: 190,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                    lineNumber: 187,
+                                                    lineNumber: 186,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                lineNumber: 179,
+                                                lineNumber: 178,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2635,7 +2635,7 @@ function WordbookSection() {
                                                                 children: book.name
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                                lineNumber: 200,
+                                                                lineNumber: 199,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2643,13 +2643,13 @@ function WordbookSection() {
                                                                 children: book.subtitle
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                                lineNumber: 203,
+                                                                lineNumber: 202,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                        lineNumber: 199,
+                                                        lineNumber: 198,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2663,7 +2663,7 @@ function WordbookSection() {
                                                                         children: "学习进度"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                                        lineNumber: 210,
+                                                                        lineNumber: 209,
                                                                         columnNumber: 27
                                                                     }, this),
                                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2674,13 +2674,13 @@ function WordbookSection() {
                                                                         ]
                                                                     }, void 0, true, {
                                                                         fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                                        lineNumber: 211,
+                                                                        lineNumber: 210,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                                lineNumber: 209,
+                                                                lineNumber: 208,
                                                                 columnNumber: 25
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2692,18 +2692,18 @@ function WordbookSection() {
                                                                     }
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                                    lineNumber: 214,
+                                                                    lineNumber: 213,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                                lineNumber: 213,
+                                                                lineNumber: 212,
                                                                 columnNumber: 25
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                        lineNumber: 208,
+                                                        lineNumber: 207,
                                                         columnNumber: 23
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2714,39 +2714,39 @@ function WordbookSection() {
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                        lineNumber: 221,
+                                                        lineNumber: 220,
                                                         columnNumber: 23
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                                lineNumber: 198,
+                                                lineNumber: 197,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                        lineNumber: 178,
+                                        lineNumber: 177,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                    lineNumber: 177,
+                                    lineNumber: 176,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                                lineNumber: 176,
+                                lineNumber: 175,
                                 columnNumber: 15
                             }, this)
                         }, index, false, {
                             fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                            lineNumber: 175,
+                            lineNumber: 174,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                    lineNumber: 173,
+                    lineNumber: 172,
                     columnNumber: 9
                 }, this),
                 currentWordbooks.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Desktop$2f$Bunny__Words$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2754,18 +2754,18 @@ function WordbookSection() {
                     children: "该分类暂无单词书"
                 }, void 0, false, {
                     fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-                    lineNumber: 233,
+                    lineNumber: 232,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-            lineNumber: 156,
+            lineNumber: 155,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/Desktop/Bunny Words/components/wordbook-section.tsx",
-        lineNumber: 155,
+        lineNumber: 154,
         columnNumber: 5
     }, this);
 }

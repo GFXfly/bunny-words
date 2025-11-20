@@ -1,6 +1,30 @@
 {
   "app": {
+    "[project]/Desktop/Bunny Words/app/login/page": [
+      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
     "[project]/Desktop/Bunny Words/app/page": [
+      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/Desktop/Bunny Words/app/register/page": [
+      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/Desktop/Bunny Words/app/starred/page": [
+      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/Desktop/Bunny Words/app/starred/study/page": [
+      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/Desktop/Bunny Words/app/wordbook/[id]/page": [
+      "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
+      "static/media/a85fe84266768609-s.p.e658778d.woff2"
+    ],
+    "[project]/Desktop/Bunny Words/app/wordbook/[id]/study/[listId]/page": [
       "static/media/caa3a2e1cccd8315-s.p.853070df.woff2",
       "static/media/a85fe84266768609-s.p.e658778d.woff2"
     ]

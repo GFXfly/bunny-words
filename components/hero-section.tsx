@@ -3,8 +3,27 @@
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState, useEffect } from 'react'
+import { isUserLoggedIn } from '@/lib/utils/auth-manager'
 
 export function HeroSection() {
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  useEffect(() => {
+    setLoggedIn(isUserLoggedIn())
+
+    // 监听登出事件
+    const handleLogout = () => {
+      setLoggedIn(false)
+    }
+
+    window.addEventListener('bunny_user_logout', handleLogout)
+
+    return () => {
+      window.removeEventListener('bunny_user_logout', handleLogout)
+    }
+  }, [])
+
   return (
     <section className="relative overflow-hidden bg-[#FFF9F0]">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -25,16 +44,19 @@ export function HeroSection() {
               </h1>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <Link href="/register">
-                <Button
-                  size="lg"
-                  className="w-full sm:w-auto rounded-full bg-[#E85D75] hover:bg-[#D64C63] text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl hover:shadow-[#E85D75]/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer border-0"
-                >
-                  立即注册
-                </Button>
-              </Link>
-            </div>
+            {/* 只在未登录时显示注册按钮 */}
+            {!loggedIn && (
+              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                <Link href="/register">
+                  <Button
+                    size="lg"
+                    className="w-full sm:w-auto rounded-full bg-[#E85D75] hover:bg-[#D64C63] text-white px-8 py-6 text-lg font-semibold shadow-lg hover:shadow-xl hover:shadow-[#E85D75]/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer border-0"
+                  >
+                    立即注册
+                  </Button>
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Right Image */}

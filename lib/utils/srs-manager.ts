@@ -27,11 +27,23 @@ const INTERVALS = {
     easy: 5760, // 4 天后 (4 * 24 * 60)
 }
 
+import { getCurrentUser } from './auth-manager'
+
+// 获取存储key
+function getStorageKey(wordbookId: string, listId: string): string {
+    const user = getCurrentUser()
+    const baseKey = `srs_progress_${wordbookId}_${listId}`
+    if (user) {
+        return `${baseKey}_${user.phone}`
+    }
+    return `${baseKey}_guest`
+}
+
 // 获取列表的学习进度
 export function getListProgress(wordbookId: string, listId: string): ListProgress | null {
     if (typeof window === 'undefined') return null
 
-    const key = `srs_progress_${wordbookId}_${listId}`
+    const key = getStorageKey(wordbookId, listId)
     const data = localStorage.getItem(key)
 
     if (!data) return null
@@ -48,7 +60,7 @@ export function getListProgress(wordbookId: string, listId: string): ListProgres
 export function saveListProgress(progress: ListProgress): void {
     if (typeof window === 'undefined') return
 
-    const key = `srs_progress_${progress.wordbookId}_${progress.listId}`
+    const key = getStorageKey(progress.wordbookId, progress.listId)
     localStorage.setItem(key, JSON.stringify(progress))
 
     // Dispatch custom event for UI updates

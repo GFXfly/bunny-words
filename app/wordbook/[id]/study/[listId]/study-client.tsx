@@ -154,6 +154,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
     isCorrect: boolean
   }>>([])
   const [starredIds, setStarredIds] = useState<Set<string>>(new Set())
+  const [enableTransition, setEnableTransition] = useState(true)
 
   // Initialize starredIds when showing results
   useEffect(() => {
@@ -260,7 +261,12 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
 
   const handlePrevious = () => {
     if (currentIndex > 0) {
+      setEnableTransition(false)
+      setShowAnswer(false)
+      setUserInput('')
+      setShowHint(false)
       setCurrentIndex(currentIndex - 1)
+      setTimeout(() => setEnableTransition(true), 50)
     }
   }
 
@@ -323,8 +329,15 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
   }
 
   const handleNext = () => {
+    // Reset state immediately to prevent "spoilers"
+    setEnableTransition(false)
+    setShowAnswer(false)
+    setUserInput('')
+    setShowHint(false)
+
     if (currentIndex < words.length - 1) {
       setCurrentIndex(currentIndex + 1)
+      setTimeout(() => setEnableTransition(true), 50)
     } else {
       // End of list reached
       if (mode === 'matching') {
@@ -609,7 +622,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
     <div className="flex-1 flex flex-col items-center justify-center p-4 min-h-[500px]">
       <div className="perspective-1000 w-full max-w-xl">
         <div
-          className="relative w-full aspect-[4/3] transition-transform duration-500 transform-style-3d cursor-pointer"
+          className={`relative w-full aspect-[4/3] transition-transform ${enableTransition ? 'duration-500' : 'duration-0'} transform-style-3d cursor-pointer`}
           style={{
             transformStyle: 'preserve-3d',
             transform: showAnswer ? 'rotateY(180deg)' : 'rotateY(0deg)'
@@ -832,7 +845,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
                 handleDictationSubmit()
               }
             }}
-            className="w-full h-12 text-center text-xl border-0 border-b border-gray-300 rounded-none focus-visible:ring-0 focus-visible:border-gray-900 px-0 bg-transparent"
+            className="w-full h-24 text-center text-5xl md:text-6xl border-0 border-b-2 border-gray-200 rounded-none focus-visible:ring-0 focus-visible:border-[#E85D75] px-0 bg-transparent font-bold placeholder:text-gray-200 transition-colors tracking-widest"
             placeholder="在此输入单词"
             autoFocus
           />

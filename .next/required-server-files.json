@@ -293,8 +293,8 @@
     },
     "distDirRoot": ".next"
   },
-  "appDir": "/Users/gaofeixiang/Desktop/bunny-words-homepage",
-  "relativeAppDir": "Desktop/bunny-words-homepage",
+  "appDir": "/Users/gaofeixiang/Desktop/Bunny Words",
+  "relativeAppDir": "Desktop/Bunny Words",
   "files": [
     ".next/routes-manifest.json",
     ".next/server/pages-manifest.json",

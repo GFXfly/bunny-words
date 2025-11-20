@@ -1,8 +1,7 @@
 'use client'
-
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 
 const categories = [
@@ -27,6 +26,7 @@ const wordbooksByCategory: Record<
     subtitle?: string
     words: number
     hasImage?: boolean
+    image?: string
     progress?: number
   }>
 > = {
@@ -79,11 +79,13 @@ const wordbooksByCategory: Record<
     { id: 'middleschool-1', name: '初中必备词汇', subtitle: '全册', words: 1600, progress: 0 },
   ],
   primary: [
-    { id: 'primary-1', name: '小学英语词汇', subtitle: '基础版', words: 800, progress: 0 },
+    { id: 'primary-1', name: '小学英语词汇', subtitle: '基础版', words: PRIMARY_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
   ],
 }
 
 import { getWordbookStats } from '@/lib/utils/wordbook-manager'
+import { isUserLoggedIn } from '@/lib/utils/auth-manager'
+import { PRIMARY_WORDBOOK } from '@/lib/data/primary-words'
 
 // ... (keep existing imports and constants)
 
@@ -93,10 +95,18 @@ export function WordbookSection() {
   const [bookStats, setBookStats] = useState<Record<string, number>>({})
 
   useEffect(() => {
-    const userData = localStorage.getItem('user')
-    if (userData) {
-      const parsed = JSON.parse(userData)
-      setIsLoggedIn(parsed.isLoggedIn || false)
+    // 使用新的认证管理工具检查登录状态
+    setIsLoggedIn(isUserLoggedIn())
+
+    // 监听登出事件
+    const handleLogout = () => {
+      setIsLoggedIn(false)
+    }
+
+    window.addEventListener('bunny_user_logout', handleLogout)
+
+    return () => {
+      window.removeEventListener('bunny_user_logout', handleLogout)
     }
   }, [])
 
@@ -131,19 +141,41 @@ export function WordbookSection() {
 
     // Listen for updates
     window.addEventListener('bunny_words_progress_updated', updateBookStats)
+    window.addEventListener('bunny_user_login', updateBookStats)
     window.addEventListener('focus', updateBookStats)
 
     return () => {
       window.removeEventListener('bunny_words_progress_updated', updateBookStats)
+      window.removeEventListener('bunny_user_login', updateBookStats)
       window.removeEventListener('focus', updateBookStats)
     }
   }, [])
+
+  const studyingBooks = useMemo(() => {
+    const books: typeof wordbooksByCategory['studying'] = []
+    const seenIds = new Set<string>()
+
+    Object.entries(wordbooksByCategory).forEach(([category, categoryBooks]) => {
+      if (category === 'studying') return
+
+      categoryBooks.forEach((book) => {
+        const progress = bookStats[book.id] || 0
+        if (progress > 0 && !seenIds.has(book.id)) {
+          books.push({ ...book, progress })
+          seenIds.add(book.id)
+        }
+      })
+    })
+    return books
+  }, [bookStats])
 
   const visibleCategories = isLoggedIn
     ? categories
     : categories.filter((cat) => cat.id !== 'studying')
 
-  const currentWordbooks = wordbooksByCategory[selectedCategory] || []
+  const currentWordbooks = selectedCategory === 'studying'
+    ? studyingBooks
+    : (wordbooksByCategory[selectedCategory] || [])
 
   useEffect(() => {
     if (!isLoggedIn && selectedCategory === 'studying') {
@@ -179,7 +211,7 @@ export function WordbookSection() {
                     <div className="flex-shrink-0 w-14 h-18 md:w-16 md:h-20 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl shadow-sm flex items-center justify-center overflow-hidden border border-gray-200 group-hover:shadow-md transition-shadow">
                       {book.hasImage ? (
                         <img
-                          src="/abstract-book-cover.png"
+                          src={book.image || "/abstract-book-cover.png"}
                           alt={book.name}
                           className="w-full h-full object-cover"
                         />
@@ -205,20 +237,23 @@ export function WordbookSection() {
                         </p>
                       </div>
 
-                      <div className="mb-1.5">
-                        <div className="flex items-center justify-between text-xs text-muted-foreground mb-1">
-                          <span className="font-medium">学习进度</span>
-                          <span className="font-semibold text-[#E85D75]">{bookStats[book.id] || book.progress || 0}%</span>
+                      {/* 只在登录时显示学习进度 */}
+                      {isLoggedIn && (
+                        <div className="mb-1.5">
+                          <div className="flex items-center justify-between text-xs text-muted-foreground mb-1">
+                            <span className="font-medium">学习进度</span>
+                            <span className="font-semibold text-[#E85D75]">{bookStats[book.id] || book.progress || 0}%</span>
+                          </div>
+                          <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden shadow-inner">
+                            <div
+                              className="h-full bg-gradient-to-r from-[#E85D75] to-[#F7A1B0] rounded-full transition-all duration-500 shadow-sm"
+                              style={{ width: `${bookStats[book.id] || book.progress || 0}%` }}
+                            />
+                          </div>
                         </div>
-                        <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden shadow-inner">
-                          <div
-                            className="h-full bg-gradient-to-r from-[#E85D75] to-[#F7A1B0] rounded-full transition-all duration-500 shadow-sm"
-                            style={{ width: `${bookStats[book.id] || book.progress || 0}%` }}
-                          />
-                        </div>
-                      </div>
+                      )}
 
-                      <div className="inline-block px-2.5 py-1 md:px-3 bg-gradient-to-r from-[#FFE4E9] to-[#FFF0F3] text-[#E85D75] text-xs md:text-sm rounded-full self-start font-semibold shadow-sm">
+                      <div className={`inline-block px-2.5 py-1 md:px-3 bg-gradient-to-r from-[#FFE4E9] to-[#FFF0F3] text-[#E85D75] text-xs md:text-sm rounded-full self-start font-semibold shadow-sm ${!isLoggedIn ? 'mt-1.5' : ''}`}>
                         {book.words} 词
                       </div>
                     </div>

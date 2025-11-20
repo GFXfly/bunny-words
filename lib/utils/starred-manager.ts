@@ -1,13 +1,25 @@
 // Starred Words Manager
 // 管理用户收藏的单词
 
-const STARRED_WORDS_KEY = 'starred_words'
+import { getCurrentUser } from './auth-manager'
+
+const STARRED_WORDS_BASE_KEY = 'starred_words'
+
+// 获取当前用户的存储key
+function getStorageKey(): string {
+    const user = getCurrentUser()
+    if (user) {
+        return `${STARRED_WORDS_BASE_KEY}_${user.phone}`
+    }
+    return `${STARRED_WORDS_BASE_KEY}_guest`
+}
 
 // 获取所有星标单词ID
 export function getStarredWords(): Array<string | number> {
     if (typeof window === 'undefined') return []
 
-    const data = localStorage.getItem(STARRED_WORDS_KEY)
+    const key = getStorageKey()
+    const data = localStorage.getItem(key)
     if (!data) return []
 
     try {
@@ -29,7 +41,8 @@ export function addStarredWord(wordId: string | number): void {
     const starred = getStarredWords()
     if (!starred.includes(wordId)) {
         starred.push(wordId)
-        localStorage.setItem(STARRED_WORDS_KEY, JSON.stringify(starred))
+        const key = getStorageKey()
+        localStorage.setItem(key, JSON.stringify(starred))
     }
 }
 
@@ -37,7 +50,8 @@ export function addStarredWord(wordId: string | number): void {
 export function removeStarredWord(wordId: string | number): void {
     const starred = getStarredWords()
     const filtered = starred.filter(id => id !== wordId)
-    localStorage.setItem(STARRED_WORDS_KEY, JSON.stringify(filtered))
+    const key = getStorageKey()
+    localStorage.setItem(key, JSON.stringify(filtered))
 }
 
 // 切换星标状态

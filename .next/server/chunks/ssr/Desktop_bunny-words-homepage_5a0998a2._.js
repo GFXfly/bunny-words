@@ -1,3 +1,0 @@
-module.exports=[47465,a=>{a.n(a.i(36621))},42289,a=>{a.n(a.i(24805))},67005,a=>{a.n(a.i(52906))},42851,a=>{a.n(a.i(80116))},80671,a=>{a.n(a.i(41741))},80116,(a,b,c)=>{"use strict";Object.defineProperty(c,"__esModule",{value:!0}),Object.defineProperty(c,"default",{enumerable:!0,get:function(){return f}});let d=a.r(90772),e=a.r(21717);function f(){return(0,d.jsx)(e.HTTPAccessErrorFallback,{status:401,message:"You're not authorized to access this page."})}("function"==typeof c.default||"object"==typeof c.default&&null!==c.default)&&void 0===c.default.__esModule&&(Object.defineProperty(c.default,"__esModule",{value:!0}),Object.assign(c.default,c),b.exports=c.default)}];
-
-//# sourceMappingURL=Desktop_bunny-words-homepage_5a0998a2._.js.map

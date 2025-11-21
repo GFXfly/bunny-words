@@ -71,25 +71,18 @@ var __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$c
 ;
 ;
 const metadata = {
-    title: '兔兔单词｜Bunny Words',
+    title: '个人学习工具',
     description: '让词汇学习变得有趣又温暖 - 兔兔单词，你的友好语言学习伙伴',
     generator: 'v0.app',
     icons: {
         icon: [
             {
-                url: '/icon-light-32x32.png',
-                media: '(prefers-color-scheme: light)'
-            },
-            {
-                url: '/icon-dark-32x32.png',
-                media: '(prefers-color-scheme: dark)'
-            },
-            {
-                url: '/icon.svg',
-                type: 'image/svg+xml'
+                url: '/favicon.png',
+                sizes: '32x32',
+                type: 'image/png'
             }
         ],
-        apple: '/apple-icon.png'
+        apple: '/favicon.png'
     }
 };
 function RootLayout({ children }) {
@@ -100,12 +93,12 @@ function RootLayout({ children }) {
             children: children
         }, void 0, false, {
             fileName: "[project]/Desktop/Bunny Words/app/layout.tsx",
-            lineNumber: 39,
+            lineNumber: 32,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/Desktop/Bunny Words/app/layout.tsx",
-        lineNumber: 38,
+        lineNumber: 31,
         columnNumber: 5
     }, this);
 }

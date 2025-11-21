@@ -50,9 +50,10 @@ type StudyMode = 'flashcard' | 'dictation' | 'choice' | 'matching'
 
 interface StarredStudyClientProps {
   mode: string
+  fromWordbook?: string
 }
 
-export default function StarredStudyClient({ mode: initialMode }: StarredStudyClientProps) {
+export default function StarredStudyClient({ mode: initialMode, fromWordbook }: StarredStudyClientProps) {
   const router = useRouter()
   const mode = initialMode as StudyMode
 
@@ -380,19 +381,24 @@ export default function StarredStudyClient({ mode: initialMode }: StarredStudyCl
   }
 
   // Render Components
-  const renderHeader = () => (
-    <div className="bg-white">
-      <div className="container mx-auto px-4 h-14 flex items-center">
-        <Link
-          href="/starred"
-          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>返回列表</span>
-        </Link>
+  const renderHeader = () => {
+    const returnUrl = fromWordbook ? `/wordbook/${fromWordbook}` : '/starred'
+    const returnText = fromWordbook ? '返回词书' : '返回列表'
+
+    return (
+      <div className="bg-white">
+        <div className="container mx-auto px-4 h-14 flex items-center">
+          <Link
+            href={returnUrl}
+            className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>{returnText}</span>
+          </Link>
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   const renderModeSelector = () => (
     <div className="bg-white pb-4">
@@ -980,7 +986,7 @@ export default function StarredStudyClient({ mode: initialMode }: StarredStudyCl
         <div className="flex-1 flex items-center justify-center p-8">
           <Card className="p-8 max-w-md text-center">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              📚 暂无星标单词
+              📚 暂无生词
             </h2>
             <p className="text-gray-600 mb-4">
               您还没有收藏任何单词，快去学习并收藏吧！

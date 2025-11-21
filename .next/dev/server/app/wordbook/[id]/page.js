@@ -1,5 +1,5 @@
 var R=require("../../../chunks/ssr/[turbopack]_runtime.js")("server/app/wordbook/[id]/page.js")
-R.c("server/chunks/ssr/[root-of-the-server]__90d53c49._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__00ad28fa._.js")
 R.c("server/chunks/ssr/a0a38_9cade0fe._.js")
 R.c("server/chunks/ssr/a0a38_next_dist_c0983c9d._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__7f148858._.js")

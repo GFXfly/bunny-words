@@ -8,10 +8,11 @@ interface WordbookStatsProps {
     wordbookId: string
     totalWords: number
     lists: Array<{
-        id: number
+        id: string | number
         name: string
-        startIndex: number
-        endIndex: number
+        startIndex?: number
+        endIndex?: number
+        wordCount?: number
     }>
 }
 
@@ -29,9 +30,13 @@ export function WordbookStats({ wordbookId, totalWords, lists }: WordbookStatsPr
         let dueForReview = 0
 
         lists.forEach(list => {
-            const sectionId = `${wordbookId}_list_${list.id}`
+            const sectionId = typeof list.id === 'string' && list.id.includes('_section_')
+                ? list.id
+                : `${wordbookId}_list_${list.id}`
+
             const progress = getListProgress(wordbookId, sectionId)
-            const listStats = getListStats(progress, list.endIndex - list.startIndex)
+            const wordCount = list.wordCount || (list.endIndex && list.startIndex ? list.endIndex - list.startIndex : 50)
+            const listStats = getListStats(progress, wordCount)
 
             learnedWords += listStats.learned
             dueForReview += listStats.dueForReview

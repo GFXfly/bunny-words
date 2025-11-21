@@ -7,10 +7,34 @@ import { Word, Wordbook, WordbookSection } from '../types/word'
 import { CET4_WORDS, CET4_WORDBOOK, getCET4WordById, getCET4WordsByIds } from '../data/cet4-words'
 import { CET6_WORDS, CET6_WORDBOOK, getCET6WordById, getCET6WordsByIds } from '../data/cet6-words'
 import { PRIMARY_WORDS, PRIMARY_WORDBOOK, getPrimaryWordById, getPrimaryWordsByIds } from '../data/primary-words'
+import { PEP_WORDBOOK } from '../data/pep-primary-words'
+import { SHANGHAI_WORDBOOK } from '../data/shanghai-primary-words'
+import { NSE_WORDBOOK } from '../data/nse-primary-words'
+import { YILIN_WORDBOOK } from '../data/yilin-primary-words'
+import { PEP_JUNIOR_WORDBOOK } from '../data/pep-junior-words'
+import { NSE_JUNIOR_WORDBOOK } from '../data/nse-junior-words'
+import { SHANGHAI_JUNIOR_WORDBOOK } from '../data/shanghai-junior-words'
+import { PEP_SENIOR_WORDBOOK } from '../data/pep-senior-words'
+import { NSE_SENIOR_WORDBOOK } from '../data/nse-senior-words'
+import { SHANGHAI_SENIOR_WORDBOOK } from '../data/shanghai-senior-words'
+import { GAOKAO_WORDBOOK } from '../data/gaokao-words'
+import { GAOKAO_HIGHFREQ_WORDBOOK } from '../data/gaokao-highfreq-words'
 
 // 所有可用的词书
 export const ALL_WORDBOOKS: Wordbook[] = [
-    PRIMARY_WORDBOOK,  // 小学词库放在最前面
+    PRIMARY_WORDBOOK,  // 通用小学词库
+    PEP_WORDBOOK,      // 人教版小学
+    SHANGHAI_WORDBOOK, // 沪教版小学
+    NSE_WORDBOOK,      // 外研社版小学
+    YILIN_WORDBOOK,    // 苏教版小学
+    PEP_JUNIOR_WORDBOOK,      // 人教版初中
+    NSE_JUNIOR_WORDBOOK,      // 外研社版初中
+    SHANGHAI_JUNIOR_WORDBOOK, // 沪教版初中
+    PEP_SENIOR_WORDBOOK,      // 人教版高中
+    NSE_SENIOR_WORDBOOK,      // 外研社版高中
+    SHANGHAI_SENIOR_WORDBOOK, // 沪教版高中
+    GAOKAO_WORDBOOK,          // 高考大纲词汇
+    GAOKAO_HIGHFREQ_WORDBOOK, // 高考高频词汇
     CET4_WORDBOOK,
     CET6_WORDBOOK
 ]

@@ -23,15 +23,15 @@ import { getListProgress, getListStats } from '@/lib/utils/srs-manager'
 interface WordbookListProps {
     wordbookId: string
     lists: Array<{
-        id: number
+        id: string | number
         name: string
-        startIndex: number
-        endIndex: number
+        startIndex?: number
+        endIndex?: number
     }>
 }
 
 export function WordbookList({ wordbookId, lists }: WordbookListProps) {
-    const [listStats, setListStats] = useState<Record<number, {
+    const [listStats, setListStats] = useState<Record<string | number, {
         learned: number
         reviewNeeded: number
         total: number
@@ -45,10 +45,15 @@ export function WordbookList({ wordbookId, lists }: WordbookListProps) {
     const [showResetDialog, setShowResetDialog] = useState(false)
 
     const loadStats = () => {
-        const stats: Record<number, any> = {}
+        const stats: Record<string | number, any> = {}
 
         lists.forEach(list => {
-            const sectionId = `${wordbookId}_list_${list.id}`
+            // If list.id is a string (like 'pep_section_0_0'), use it directly
+            // If list.id is a number (like 1, 2, 3), construct the legacy format
+            const sectionId = typeof list.id === 'string' && list.id.includes('_section_')
+                ? list.id
+                : `${wordbookId}_list_${list.id}`
+
             const words = getSectionWords(wordbookId, sectionId)
 
             // Get SRS progress
@@ -141,7 +146,9 @@ export function WordbookList({ wordbookId, lists }: WordbookListProps) {
                 {lists.map((list) => {
                     const stats = listStats[list.id] || { learned: 0, reviewNeeded: 0, total: 50, completed: false, previewWords: [], allWords: [] }
                     // Construct the dynamic section ID
-                    const sectionId = `${wordbookId}_list_${list.id}`
+                    const sectionId = typeof list.id === 'string' && list.id.includes('_section_')
+                        ? list.id
+                        : `${wordbookId}_list_${list.id}`
 
                     return (
                         <Card

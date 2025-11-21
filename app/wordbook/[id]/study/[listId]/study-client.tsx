@@ -19,7 +19,8 @@ import {
   LayoutGrid,
   RotateCcw,
   ArrowRight,
-  Eye
+  Eye,
+  VolumeX
 } from 'lucide-react'
 
 // 导入词库管理工具和发音功能
@@ -39,6 +40,7 @@ import {
 import { isWordStarred, toggleStarredWord } from '@/lib/utils/starred-manager'
 import confetti from 'canvas-confetti'
 import { Progress } from '@/components/ui/progress'
+import { useSoundEffects } from '@/lib/hooks/use-sound-effects'
 
 // 词书ID映射：URL参数 -> 实际词书ID
 const WORDBOOK_ID_MAP: Record<string, string> = {
@@ -155,6 +157,9 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
   }>>([])
   const [starredIds, setStarredIds] = useState<Set<string>>(new Set())
   const [enableTransition, setEnableTransition] = useState(true)
+  const [isSoundEnabled, setIsSoundEnabled] = useState(true)
+
+  const { playClick, playFlip, playCorrect, playWrong, playWin, playTypewriter } = useSoundEffects(isSoundEnabled)
 
   // Initialize starredIds when showing results
   useEffect(() => {
@@ -188,14 +193,14 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
 
   // Auto-play audio
   useEffect(() => {
-    if (currentWord && (mode === 'flashcard' || mode === 'dictation' || mode === 'choice')) {
+    if (isSoundEnabled && currentWord && (mode === 'flashcard' || mode === 'dictation' || mode === 'choice')) {
       // Small delay to ensure UI is ready
       const timer = setTimeout(() => {
         speakWord(currentWord.word)
       }, 500)
       return () => clearTimeout(timer)
     }
-  }, [currentWord, mode])
+  }, [currentWord, mode, isSoundEnabled])
 
   // Cleanup speech
   useEffect(() => {
@@ -348,6 +353,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
         router.push(`/wordbook/${id}`)
       } else {
         // For test modes (dictation, choice), show results page
+        playWin()
         setShowResults(true)
       }
     }
@@ -355,17 +361,30 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
 
 
 
+  const safeSpeakWord = (text: string, options?: any) => {
+    if (isSoundEnabled) {
+      speakWord(text, options)
+    }
+  }
+
+  const safeSpeakSentence = (text: string) => {
+    if (isSoundEnabled) {
+      speakSentence(text)
+    }
+  }
+
   const handlePlayAudio = () => {
     if (!currentWord) return
 
     // 使用 Web Speech API 朗读单词
-    speakWord(currentWord.word, {
+    safeSpeakWord(currentWord.word, {
       slow: false,
       repeat: 1
     })
   }
 
   const handleCardFlip = () => {
+    playFlip()
     setShowAnswer(!showAnswer)
   }
 
@@ -434,8 +453,10 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
     setWordResults(prev => [...prev, { word: currentWord, isCorrect }])
 
     if (isCorrect) {
+      playCorrect()
       setCorrectCount(correctCount + 1)
     } else {
+      playWrong()
       setWrongCount(wrongCount + 1)
     }
     setTimeout(handleNext, 1000)
@@ -466,8 +487,10 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
     setWordResults(prev => [...prev, { word: currentWord, isCorrect }])
 
     if (isCorrect) {
+      playCorrect()
       setCorrectCount(correctCount + 1)
     } else {
+      playWrong()
       setWrongCount(wrongCount + 1)
     }
     setTimeout(handleNext, 1000)
@@ -484,8 +507,9 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
       // 播放发音（如果是英文）
       const item = matchingItems[index]
       if (item.type === 'en') {
-        speakWord(item.text)
+        safeSpeakWord(item.text)
       }
+      playClick()
       return
     }
 
@@ -498,6 +522,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
       setMatchedIndices([...matchedIndices, selectedItemIndex, index])
       setSelectedItemIndex(null)
       setCorrectCount(correctCount + 1)
+      playCorrect()
 
       // Update SRS progress - correct match
       const actualWordbookId = WORDBOOK_ID_MAP[id] || id
@@ -527,6 +552,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
       // 匹配失败
       setSelectedItemIndex(index) // 切换到新的选中项
       setWrongCount(wrongCount + 1)
+      playWrong()
 
       // Update SRS progress - wrong match
       const actualWordbookId = WORDBOOK_ID_MAP[id] || id
@@ -545,7 +571,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
 
       // 播放发音（如果是英文）
       if (secondItem.type === 'en') {
-        speakWord(secondItem.text)
+        safeSpeakWord(secondItem.text)
       }
     }
   }
@@ -553,7 +579,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
   // Render Components
   const renderHeader = () => (
     <div className="bg-white">
-      <div className="container mx-auto px-4 h-14 flex items-center">
+      <div className="container mx-auto px-4 h-14 flex items-center justify-between">
         <Link
           href={`/wordbook/${id}`}
           className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
@@ -561,6 +587,14 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
           <ArrowLeft className="w-4 h-4" />
           <span>返回列表</span>
         </Link>
+
+        <button
+          onClick={() => setIsSoundEnabled(!isSoundEnabled)}
+          className="p-2 hover:bg-gray-100 rounded-full transition-colors text-gray-500 hover:text-[#E85D75] cursor-pointer"
+          title={isSoundEnabled ? "关闭音效" : "开启音效"}
+        >
+          {isSoundEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
+        </button>
       </div>
     </div>
   )
@@ -721,7 +755,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
                   <button
                     onClick={(e) => {
                       e.stopPropagation()
-                      speakSentence(currentWord.example)
+                      safeSpeakSentence(currentWord.example)
                     }}
                     className="p-1 hover:bg-white/60 rounded-full transition-colors cursor-pointer flex-shrink-0"
                     title="播放例句"
@@ -839,7 +873,10 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
         <div className="relative">
           <Input
             value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
+            onChange={(e) => {
+              setUserInput(e.target.value)
+              playTypewriter()
+            }}
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
                 handleDictationSubmit()
@@ -1105,7 +1142,7 @@ export default function StudyPageClient({ id, listId, mode }: StudyPageClientPro
                         <div className="flex items-center gap-2">
                           <span className="font-bold text-base md:text-lg text-gray-900">{result.word.word}</span>
                           <button
-                            onClick={() => speakWord(result.word.word)}
+                            onClick={() => safeSpeakWord(result.word.word)}
                             className="p-1 hover:bg-white/60 rounded-full transition-colors flex-shrink-0"
                           >
                             <Volume2 className="w-3.5 h-3.5 md:w-4 md:h-4 text-gray-600" />

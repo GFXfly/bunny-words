@@ -1,5 +1,5 @@
 var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/starred/page.js")
-R.c("server/chunks/ssr/Desktop_Bunny Words_cffe99af._.js")
+R.c("server/chunks/ssr/Desktop_Bunny Words_5725b711._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__f8770afa._.js")
 R.c("server/chunks/ssr/Desktop_Bunny Words_d9a6df9b._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__9cbbc6e1._.js")

@@ -1,11 +1,8 @@
-[00:00:00.428] Server  LOG      ✓ Ready in 297ms
-[00:00:04.471] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:04.589] Browser WARN    Image with src "http://localhost:3000/bunny-studying.png" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[00:00:06.053] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:29.924] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:30.910] Browser LOG     eth getParams JmYvHFqco50-fGK_Cps9M
-[00:00:30.910] Browser WARN    Backpack couldn't override `window.ethereum`.
-[00:00:30.910] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:00.471] Server  LOG      ✓ Ready in 324ms
+[00:00:03.316] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.336] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:33.664] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:33.793] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -33,73 +30,65 @@ It can also happen if the client has a browser extension installed which messes 
                       <link>
                       <script>
                       <RootLayout>
-                        <html lang="zh-CN">
+                        <html
+                          lang="zh-CN"
+-                         data-jetski-tab-id="1621689542"
+                        >
                           <body
-                            className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
--                           inmaintabuse="1"
--                           data-channel-name="JmYvHFqco50-fGK_Cps9M"
--                           data-extension-id="hpclkefagolihohboafpheddmmgdffjm"
++                           className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
+-                           className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable antigravity-scro..."
                           >
                   ...
 
-[00:00:37.884] Browser ERROR   Error checking default wallet status: {"code":-32603,"data":{"originalError":{"message":"Cannot read properties of undefined (reading 'isDefaultWallet')","stack":"TypeError: Cannot read properties of undefined (reading 'isDefaultWallet')\n    at Object.getIsDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3953850)\n    at Object.isDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3266176)\n    at tn (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3390345)\n    at a.listenCallback (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:4572743)\n    at a.onRequest (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3750357)\n    at chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:2587928"}},"message":"Cannot read properties of undefined (reading 'isDefaultWallet')"}
-[00:30:31.306] Browser ERROR   %s is an async Client Component. Only Server Components can be async at the moment. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server. <StudyPage>
-[00:30:31.306] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[00:30:32.102] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:30:45.616] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:30:49.090] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:30:52.028] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:30:56.211] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:30:57.535] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[00:30:58.049] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:03.193] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:04.351] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:07.862] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:12.055] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:18.413] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:24.650] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[00:31:25.156] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:28.073] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:30.193] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:32.736] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:34.313] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:35.890] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:38.132] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[00:31:40.421] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:42.945] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:45.143] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:31:47.714] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:33:53.529] Server  LOG      ✓ Compiled in 78ms
-[00:33:55.462] Server  LOG      ✓ Compiled in 30ms
-[00:39:51.350] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[00:39:51.864] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:41:11.134] Server  LOG      ✓ Compiled in 59ms
-[00:41:13.125] Server  LOG      ✓ Compiled in 26ms
-[00:41:14.672] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:45:05.960] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:45:12.547] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:45:15.869] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:45:23.682] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:45:27.459] Browser LOG     🎤 Selected high-quality voice: Google US English
-[00:52:00.254] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:12:36.164] Server  LOG      ✓ Compiled in 42ms
-[03:12:36.287] Browser ERROR   uncaughtError: ReferenceError: useMemo is not defined
-[03:12:36.290] Browser ERROR   uncaughtError: ReferenceError: useMemo is not defined
-[03:12:36.291] Browser ERROR   uncaughtError: ReferenceError: useMemo is not defined
-[03:12:36.294] Browser ERROR   uncaughtError: ReferenceError: useMemo is not defined
-[03:12:42.386] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[03:12:42.386] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[03:12:42.386] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[03:12:42.482] Server  LOG      ✓ Compiled in 27ms
-[03:12:42.528] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[03:12:42.687] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:12:42.713] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:12:42.737] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:12:42.807] Browser WARN    Image with src "http://localhost:3000/bunny-studying.png" has "fill" and a height value of 0. This is likely because the parent element of the image has not been styled to have a set height.
-[03:12:44.725] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:12:44.725] Browser LOG     eth getParams vS53HdVa6dtHdH_yUdcZE
-[03:12:44.725] Browser WARN    Backpack couldn't override `window.ethereum`.
-[03:12:45.255] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:02:19.621] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:19.885] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/wordbook/..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="/Desktop/B...">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <RootLayout>
+                        <html
+                          lang="zh-CN"
+-                         data-jetski-tab-id="1621689543"
+                        >
+                  ...
+
+[00:17:09.501] Server  LOG      ✓ Compiled in 28ms
+[00:20:55.174] Browser ERROR   %s is an async Client Component. Only Server Components can be async at the moment. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server. <StudyPage>
+[00:20:55.174] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
+[00:20:55.974] Browser LOG     🎤 Selected high-quality voice: Samantha
+[00:21:00.041] Browser LOG     🎤 Selected high-quality voice: Samantha
+[00:21:03.191] Browser LOG     🎤 Selected high-quality voice: Samantha
+[00:21:06.494] Browser LOG     🎤 Selected high-quality voice: Samantha
+[00:21:09.657] Browser LOG     🎤 Selected high-quality voice: Samantha
+[00:21:14.867] Browser LOG     🎤 Selected high-quality voice: Samantha
+[00:21:19.793] Browser LOG     🎤 Selected high-quality voice: Samantha
+[00:21:36.355] Browser LOG     🎤 Selected high-quality voice: Samantha
+[00:26:53.114] Server  LOG      ✓ Compiled in 71ms
+[00:27:16.353] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:16.482] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -127,33 +116,18 @@ It can also happen if the client has a browser extension installed which messes 
                       <link>
                       <script>
                       <RootLayout>
-                        <html lang="zh-CN">
+                        <html
+                          lang="zh-CN"
+-                         data-jetski-tab-id="1621689544"
+                        >
                           <body
-                            className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
--                           inmaintabuse="1"
--                           data-channel-name="vS53HdVa6dtHdH_yUdcZE"
--                           data-extension-id="hpclkefagolihohboafpheddmmgdffjm"
++                           className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
+-                           className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable antigravity-scro..."
                           >
                   ...
 
-[03:13:02.465] Browser ERROR   Error checking default wallet status: {"code":-32603,"data":{"originalError":{"message":"Cannot read properties of undefined (reading 'isDefaultWallet')","stack":"TypeError: Cannot read properties of undefined (reading 'isDefaultWallet')\n    at Object.getIsDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3953850)\n    at Object.isDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3266176)\n    at tn (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3390345)\n    at a.listenCallback (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:4572743)\n    at a.onRequest (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3750357)\n    at chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:2587928"}},"message":"Cannot read properties of undefined (reading 'isDefaultWallet')"}
-[03:13:58.179] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:13:58.714] Browser WARN    Backpack couldn't override `window.ethereum`.
-[03:13:58.714] Browser LOG     eth getParams bRi2aGe2ydf0H8V46Qf-J
-[03:13:58.714] Browser ERROR   Error checking default wallet status: {"code":-32603,"data":{"originalError":{"message":"Cannot read properties of undefined (reading 'isDefaultWallet')","stack":"TypeError: Cannot read properties of undefined (reading 'isDefaultWallet')\n    at Object.getIsDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3953850)\n    at Object.isDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3266176)\n    at tn (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3390345)\n    at a.listenCallback (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:4572743)\n    at a.onRequest (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3750357)\n    at chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:2587928"}},"message":"Cannot read properties of undefined (reading 'isDefaultWallet')"}
-[03:14:08.560] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:14:08.856] Browser WARN    Backpack couldn't override `window.ethereum`.
-[03:14:09.052] Browser LOG     eth getParams mHD4awLrPl1XCmFkm9VFF
-[03:14:09.052] Browser ERROR   Error checking default wallet status: {"code":-32603,"data":{"originalError":{"message":"Cannot read properties of undefined (reading 'isDefaultWallet')","stack":"TypeError: Cannot read properties of undefined (reading 'isDefaultWallet')\n    at Object.getIsDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3953850)\n    at Object.isDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3266176)\n    at tn (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3390345)\n    at a.listenCallback (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:4572743)\n    at a.onRequest (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3750357)\n    at chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:2587928"}},"message":"Cannot read properties of undefined (reading 'isDefaultWallet')"}
-[03:19:02.162] Server  LOG      ✓ Compiled in 33ms
-[03:19:13.095] Server  LOG      ✓ Compiled in 28ms
-[03:19:13.254] Browser ERROR   uncaughtError: ReferenceError: getListProgress is not defined
-[03:19:20.339] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[03:19:20.436] Server  LOG      ✓ Compiled in 27ms
-[03:19:22.635] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:19:22.635] Browser LOG     eth getParams 0dKQUX4sYTsvHGzS5sTjY
-[03:19:22.635] Browser WARN    Backpack couldn't override `window.ethereum`.
-[03:19:23.257] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:31:40.388] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:31:40.496] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -171,7 +145,7 @@ It can also happen if the client has a browser extension installed which messes 
         <ReplaySsrOnlyErrors>
         <DevRootHTTPAccessFallbackBoundary>
           <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/wordbook/..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+            <HTTPAccessFallbackErrorBoundary pathname="/starred" notFound={<NotAllowedRootHTTPFallbackError>} ...>
               <RedirectBoundary>
                 <RedirectErrorBoundary router={{...}}>
                   <Head>
@@ -181,218 +155,27 @@ It can also happen if the client has a browser extension installed which messes 
                       <link>
                       <script>
                       <RootLayout>
-                        <html lang="zh-CN">
+                        <html
+                          lang="zh-CN"
+-                         data-jetski-tab-id="1621689545"
+                        >
                           <body
-                            className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
--                           inmaintabuse="1"
--                           data-channel-name="0dKQUX4sYTsvHGzS5sTjY"
--                           data-extension-id="hpclkefagolihohboafpheddmmgdffjm"
++                           className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
+-                           className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable antigravity-scro..."
                           >
                   ...
 
-[03:19:31.428] Server  LOG      ✓ Compiled in 84ms
-[03:26:25.415] Browser ERROR   Error checking default wallet status: {"code":-32603,"data":{"originalError":{"message":"Cannot read properties of undefined (reading 'isDefaultWallet')","stack":"TypeError: Cannot read properties of undefined (reading 'isDefaultWallet')\n    at Object.getIsDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3953850)\n    at Object.isDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3266176)\n    at tn (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3390345)\n    at a.listenCallback (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:4572743)\n    at a.onRequest (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3750357)\n    at chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:2587928"}},"message":"Cannot read properties of undefined (reading 'isDefaultWallet')"}
-[03:27:59.179] Server  LOG      ✓ Compiled in 31ms
-[03:44:53.893] Browser ERROR   %s is an async Client Component. Only Server Components can be async at the moment. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server. <StudyPage>
-[03:44:53.893] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[03:44:54.687] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:05.460] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:07.935] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:09.558] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:10.930] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:12.346] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:14.124] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:16.922] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:19.607] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:21.776] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:23.800] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:26.068] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:28.993] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:37.861] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:45:42.197] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:49:20.483] Server  LOG      ✓ Compiled in 30ms
-[03:49:21.623] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:49:28.429] Server  LOG      ✓ Compiled in 26ms
-[03:49:29.025] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:50:13.704] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:50:16.984] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:50:40.047] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:50:40.553] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/wordbook/..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/Desktop/B...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html lang="zh-CN">
-                          <body
-                            className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
--                           inmaintabuse="1"
--                           data-channel-name="Pb7D1-ZfPYhLrlsqA525z"
--                           data-extension-id="hpclkefagolihohboafpheddmmgdffjm"
-                          >
-                  ...
-
-[03:50:40.553] Browser WARN    Backpack couldn't override `window.ethereum`.
-[03:50:40.553] Browser ERROR   %s is an async Client Component. Only Server Components can be async at the moment. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server. <StudyPage>
-[03:50:40.553] Browser LOG     eth getParams Pb7D1-ZfPYhLrlsqA525z
-[03:50:40.553] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[03:50:40.553] Browser ERROR   Error checking default wallet status: {"code":-32603,"data":{"originalError":{"message":"Cannot read properties of undefined (reading 'isDefaultWallet')","stack":"TypeError: Cannot read properties of undefined (reading 'isDefaultWallet')\n    at Object.getIsDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3953850)\n    at Object.isDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3266176)\n    at tn (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3390345)\n    at a.listenCallback (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:4572743)\n    at a.onRequest (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3750357)\n    at chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:2587928"}},"message":"Cannot read properties of undefined (reading 'isDefaultWallet')"}
-[03:50:40.941] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:50:44.427] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[03:50:44.938] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:50:48.747] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:50:51.482] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:50:54.147] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:51:25.943] Browser LOG     🎤 Selected high-quality voice: Google US English
-[03:51:29.326] Browser LOG     🎤 Selected high-quality voice: Google US English
-[04:24:01.156] Server  LOG      ✓ Compiled in 64ms
-[04:24:02.762] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:04:46.229] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:04:49.037] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:04:51.896] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:04:57.165] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:04:59.461] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:05:03.796] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:05:07.493] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:05:09.055] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:05:12.117] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:05:13.626] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:05:19.369] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:10:27.096] Server  LOG      ✓ Compiled in 40ms
-[05:10:27.507] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[05:10:29.096] Browser LOG     🎤 Selected high-quality voice: Google US English
-[05:22:45.235] Server  LOG      ✓ Compiled in 34ms
-[05:24:33.237] Server  LOG      ✓ Compiled in 36ms
-[05:34:29.827] Server  LOG      ✓ Compiled in 32ms
-[05:44:03.606] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[05:44:04.138] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/Desktop/B...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html lang="zh-CN">
-                          <body
-                            className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
--                           inmaintabuse="1"
--                           data-channel-name="w3TWik-B2yhby8uf3NFRz"
--                           data-extension-id="hpclkefagolihohboafpheddmmgdffjm"
-                          >
-                  ...
-
-[05:44:04.138] Browser WARN    Backpack couldn't override `window.ethereum`.
-[05:44:04.138] Browser LOG     eth getParams w3TWik-B2yhby8uf3NFRz
-[05:44:04.138] Browser ERROR   Error checking default wallet status: {"code":-32603,"data":{"originalError":{"message":"Cannot read properties of undefined (reading 'isDefaultWallet')","stack":"TypeError: Cannot read properties of undefined (reading 'isDefaultWallet')\n    at Object.getIsDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3953850)\n    at Object.isDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3266176)\n    at tn (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3390345)\n    at a.listenCallback (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:4572743)\n    at a.onRequest (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3750357)\n    at chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:2587928"}},"message":"Cannot read properties of undefined (reading 'isDefaultWallet')"}
-[05:53:32.855] Server  LOG      ✓ Compiled in 31ms
-[05:54:10.517] Server  LOG      ✓ Compiled in 26ms
-[05:56:09.688] Server  LOG      ✓ Compiled in 68ms
-[06:22:42.696] Server  LOG      ✓ Compiled in 72ms
-[06:24:26.893] Server  LOG      ✓ Compiled in 34ms
-[06:26:06.290] Server  LOG      ✓ Compiled in 51ms
-[06:27:57.605] Server  LOG      ✓ Compiled in 34ms
-[06:30:45.412] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[06:30:45.985] Browser WARN    Backpack couldn't override `window.ethereum`.
-[06:30:45.985] Browser LOG     eth getParams 8cccUaS4u4w9Kj1CM1311
-[06:30:45.985] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/wordbook/..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/Desktop/B...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <RootLayout>
-                        <html lang="zh-CN">
-                          <body
-                            className="font-sans antialiased caveat_a4169634-module__GO45Hq__variable"
--                           inmaintabuse="1"
--                           data-channel-name="8cccUaS4u4w9Kj1CM1311"
--                           data-extension-id="hpclkefagolihohboafpheddmmgdffjm"
-                          >
-                  ...
-
-[06:30:45.985] Browser ERROR   Error checking default wallet status: {"code":-32603,"data":{"originalError":{"message":"Cannot read properties of undefined (reading 'isDefaultWallet')","stack":"TypeError: Cannot read properties of undefined (reading 'isDefaultWallet')\n    at Object.getIsDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3953850)\n    at Object.isDefaultWallet (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3266176)\n    at tn (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3390345)\n    at a.listenCallback (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:4572743)\n    at a.onRequest (chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:3750357)\n    at chrome-extension://hpclkefagolihohboafpheddmmgdffjm/background.js:2:2587928"}},"message":"Cannot read properties of undefined (reading 'isDefaultWallet')"}
-[06:32:20.199] Server  LOG      ✓ Compiled in 46ms
-[06:35:14.349] Server  LOG      ✓ Compiled in 74ms
-[06:35:14.538] Server  LOG      ✓ Compiled in 0ms
-[07:40:55.261] Browser LOG     🎤 Selected high-quality voice: Google US English
-[07:41:00.021] Browser LOG     🎤 Selected high-quality voice: Google US English
-[07:41:04.017] Browser LOG     🎤 Selected high-quality voice: Google US English
-[09:36:37.320] Browser ERROR   %s is an async Client Component. Only Server Components can be async at the moment. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server. <StudyPage>
-[09:36:37.320] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[09:36:38.098] Browser LOG     🎤 Selected high-quality voice: Google US English
-[09:36:43.771] Browser LOG     🎤 Selected high-quality voice: Google US English
-[09:36:47.360] Browser LOG     🎤 Selected high-quality voice: Google US English
-[09:36:49.938] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[09:36:50.450] Browser LOG     🎤 Selected high-quality voice: Google US English
-[09:36:52.438] Browser LOG     🎤 Selected high-quality voice: Google US English
-[09:36:54.281] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[09:36:55.876] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[09:36:56.395] Browser LOG     🎤 Selected high-quality voice: Google US English
-[09:36:57.031] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[09:36:57.544] Browser LOG     🎤 Selected high-quality voice: Google US English
-[09:37:04.705] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
-[09:37:05.216] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:11.785] Browser ERROR   %s is an async Client Component. Only Server Components can be async at the moment. This error is often caused by accidentally adding `'use client'` to a module that was originally written for the server. <StudyPage>
+[03:09:11.785] Browser ERROR   A component was suspended by an uncached promise. Creating promises inside a Client Component or hook is not yet supported, except via a Suspense-compatible library or framework.
+[03:09:18.809] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:23.272] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:27.814] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:31.010] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:33.863] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:36.994] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:44.365] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:48.275] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:52.239] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:54.811] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:09:57.667] Browser LOG     🎤 Selected high-quality voice: Google US English
+[03:10:14.122] Browser LOG     🎤 Selected high-quality voice: Google US English

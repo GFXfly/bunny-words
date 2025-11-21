@@ -4,13 +4,13 @@ import StarredStudyClient from './starred-study-client'
 export default async function StarredStudyPage({
   searchParams,
 }: {
-  searchParams: Promise<{ mode?: string }>
+  searchParams: Promise<{ mode?: string; fromWordbook?: string }>
 }) {
-  const { mode = 'flashcard' } = await searchParams
+  const { mode = 'flashcard', fromWordbook } = await searchParams
 
   return (
     <Suspense fallback={<div>加载中...</div>}>
-      <StarredStudyClient mode={mode} />
+      <StarredStudyClient mode={mode} fromWordbook={fromWordbook} />
     </Suspense>
   )
 }

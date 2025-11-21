@@ -36,7 +36,7 @@ const wordbooksByCategory: Record<
     { id: 'kaoyan-1', name: '考研核心词汇', subtitle: '正序版', words: 5500, progress: 12 },
   ],
   cet4: [
-    { id: 'cet4-1', name: '四级核心词汇', subtitle: '正序版', words: 2500, progress: 0 },
+    { id: 'cet4-1', name: '四级核心词汇', subtitle: '正序版', words: 2500, hasImage: true, image: '/cet4-wordbook-cover.png', progress: 0 },
     { id: 'cet4-2', name: '四级高频词汇', subtitle: '乱序版', words: 1800, progress: 0 },
     { id: 'cet4-3', name: '四级真题词汇', subtitle: '2020-2024', words: 2200, progress: 0 },
   ],
@@ -72,20 +72,39 @@ const wordbooksByCategory: Record<
     { id: 'toefl-2', name: '托福分类词汇', subtitle: '学科版', words: 3600, progress: 0 },
   ],
   highschool: [
-    { id: 'highschool-1', name: '高中必修词汇', subtitle: '1-8册', words: 3500, progress: 0 },
-    { id: 'highschool-2', name: '高考高频词汇', subtitle: '3500词', words: 3500, progress: 0 },
+    { id: 'pep-senior', name: '人教版高中英语', subtitle: '新课标', words: PEP_SENIOR_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'nse-senior', name: '外研社版高中英语', subtitle: '新标准', words: NSE_SENIOR_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'shanghai-senior', name: '沪教版高中英语', subtitle: '牛津上海版', words: SHANGHAI_SENIOR_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'gaokao', name: '高考英语大纲词汇', subtitle: '3500词 乱序版', words: GAOKAO_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'gaokao-highfreq', name: '高考英语高频词汇', subtitle: '核心版', words: GAOKAO_HIGHFREQ_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
   ],
   middleschool: [
-    { id: 'middleschool-1', name: '初中必备词汇', subtitle: '全册', words: 1600, progress: 0 },
+    { id: 'pep-junior', name: '人教版初中英语', subtitle: 'Go for it!', words: PEP_JUNIOR_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'nse-junior', name: '外研社版初中英语', subtitle: '新标准', words: NSE_JUNIOR_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'shanghai-junior', name: '沪教版初中英语', subtitle: '牛津上海版', words: SHANGHAI_JUNIOR_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
   ],
   primary: [
-    { id: 'primary-1', name: '小学英语词汇', subtitle: '基础版', words: PRIMARY_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'pep-primary', name: '人教版小学英语', subtitle: '三年级起点', words: PEP_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'shanghai-primary', name: '沪教版小学英语', subtitle: '一年级起点', words: SHANGHAI_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'nse-primary', name: '外研社版小学英语', subtitle: '三年级起点', words: NSE_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
+    { id: 'yilin-primary', name: '苏教版小学英语', subtitle: '三年级起点', words: YILIN_WORDBOOK.totalWords, hasImage: true, image: '/primary-wordbook-cover.png', progress: 0 },
   ],
 }
 
 import { getWordbookStats } from '@/lib/utils/wordbook-manager'
 import { isUserLoggedIn } from '@/lib/utils/auth-manager'
-import { PRIMARY_WORDBOOK } from '@/lib/data/primary-words'
+import { PEP_WORDBOOK } from '@/lib/data/pep-primary-words'
+import { SHANGHAI_WORDBOOK } from '@/lib/data/shanghai-primary-words'
+import { NSE_WORDBOOK } from '@/lib/data/nse-primary-words'
+import { YILIN_WORDBOOK } from '@/lib/data/yilin-primary-words'
+import { PEP_JUNIOR_WORDBOOK } from '@/lib/data/pep-junior-words'
+import { NSE_JUNIOR_WORDBOOK } from '@/lib/data/nse-junior-words'
+import { SHANGHAI_JUNIOR_WORDBOOK } from '@/lib/data/shanghai-junior-words'
+import { PEP_SENIOR_WORDBOOK } from '@/lib/data/pep-senior-words'
+import { NSE_SENIOR_WORDBOOK } from '@/lib/data/nse-senior-words'
+import { SHANGHAI_SENIOR_WORDBOOK } from '@/lib/data/shanghai-senior-words'
+import { GAOKAO_WORDBOOK } from '@/lib/data/gaokao-words'
+import { GAOKAO_HIGHFREQ_WORDBOOK } from '@/lib/data/gaokao-highfreq-words'
 
 // ... (keep existing imports and constants)
 
@@ -117,7 +136,18 @@ export function WordbookSection() {
     Object.values(wordbooksByCategory).flat().forEach(book => {
       // Map homepage book IDs to actual wordbook IDs
       const WORDBOOK_ID_MAP: Record<string, string> = {
-        'primary-1': 'primary_wordbook',
+        'pep-primary': 'pep_primary_wordbook',
+        'shanghai-primary': 'shanghai_primary_wordbook',
+        'nse-primary': 'nse_primary_wordbook',
+        'yilin-primary': 'yilin_primary_wordbook',
+        'pep-junior': 'pep_junior_wordbook',
+        'nse-junior': 'nse_junior_wordbook',
+        'shanghai-junior': 'shanghai_junior_wordbook',
+        'pep-senior': 'pep_senior_wordbook',
+        'nse-senior': 'nse_senior_wordbook',
+        'shanghai-senior': 'shanghai_senior_wordbook',
+        'gaokao': 'gaokao_wordbook',
+        'gaokao-highfreq': 'gaokao_highfreq_wordbook',
         'cet4-1': 'cet4_wordbook',
         'cet6-1': 'cet6_wordbook',
       }
